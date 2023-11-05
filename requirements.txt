@@ -1,0 +1,4 @@
+telethon==1.26.1
+swibots
+cryptg
+python-decouple
