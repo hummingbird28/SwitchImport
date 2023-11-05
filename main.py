@@ -16,6 +16,7 @@ from functions import get_progress_bar, humanbytes
 from swibots import Message, UploadProgress
 from telethon.tl.custom import Message as TMessage
 from telethon.tl import types
+from swibots import InlineMarkup, InlineKeyboardButton
 from swibots import (
     Client as BotApp,
     BotCommand,
@@ -63,7 +64,7 @@ async def start_bots():
         )
 
 
-# loop.create_task(start_bots())
+loop.create_task(start_bots())
 
 
 async def getRandomClient():
@@ -97,6 +98,23 @@ async def cancel(ctx: BotContext[CommandEvent]):
         except Exception:
             pass
     await message.reply_text("Cancelled!")
+
+
+@client.on_command("start")
+async def startCommand(ctx: BotContext[CommandEvent]):
+    m = ctx.event.message
+    await m.reply_text(
+        "Hi, I am telegram forwarder bot!\nI can clone your telegram channels to switch!\n\nSend <copy>/copy @username startid-endid</copy>",
+        inline_markup=InlineMarkup(
+            [
+                [
+                    InlineKeyboardButton(
+                        "Join Organisation", url="https://myswitch.click/fZ41"
+                    )
+                ]
+            ]
+        ),
+    )
 
 
 @client.on_command("copy")
