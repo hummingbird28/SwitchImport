@@ -104,12 +104,12 @@ async def cancel(ctx: BotContext[CommandEvent]):
 async def startCommand(ctx: BotContext[CommandEvent]):
     m = ctx.event.message
     await m.reply_text(
-        "Hi, I am telegram forwarder bot!\nI can clone your telegram channels to switch!\n\nSend <copy>/copy @username startid-endid</copy>",
+        "Hi, I am Telegram-Switch forwarder bot!\nI can clone your telegram channels to Switch!\n\nSend <copy>/copy @username startid-endid</copy>",
         inline_markup=InlineMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "Join Organisation", url="https://myswitch.click/fZ41"
+                        "Follow Us 🖇️", url="https://myswitch.click/fZ41"
                     )
                 ]
             ]
@@ -122,7 +122,7 @@ async def processCommand(ctx: BotContext[CommandEvent]):
     event: Message = ctx.event.message
     param = ctx.event.params
     if not param:
-        return await event.reply_text("Provide a chanenl username to copy!")
+        return await event.reply_text("Provide a channel username to copy!")
     umsg = await event.reply_text("Starting task!")
     split = param.split()
     start = 0
